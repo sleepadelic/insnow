@@ -5,7 +5,7 @@
     <arg default="false" name="gui"/>
     <param command="$(find xacro)/xacro $(arg model)" name="robot_description"/>
     <param name="use_gui" value="$(arg gui)"/>
-    <include file="$(find insnow_init)/launch/rs_t265.launch"/>
+
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
@@ -16,10 +16,13 @@
     <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch">
         <arg name="frame_id" value="velodyne_1"/>
     </include>
+    <include file="$(find insnow_init)/launch/rs_t265.launch"/>
+    <include file="$(find insnow_2dnav)/launch/cartographer.launch"/>
+    <include file="$(find insnow_2dnav)/launch/move_base.launch"/>
+<!--
 
-
-    <include file="$(find insnow_init)/launch/sensor_odom_manager.launch"></include>
-    <include file="$(find insnow_2dnav)/launch/hector_mapping.launch"></include>
-    <include file="$(find insnow_2dnav)/launch/move_base.launch"></include>
-
+    <include file="$(find insnow_init)/launch/sensor_odom_manager.launch"/>
+    <include file="$(find insnow_2dnav)/launch/hector_mapping.launch"/>
+    <include file="$(find insnow_2dnav)/launch/move_base.launch"/>
+-->
 </launch>
