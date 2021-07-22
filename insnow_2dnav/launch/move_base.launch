@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+   
+
+   <node pkg="move_base" type="move_base" respawn="true" respawn_delay="3" name="move_base" output="screen">
+        
+        <rosparam file="$(find insnow_2dnav)/config/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+        
+        <rosparam file="$(find insnow_2dnav)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        
+        <rosparam file="$(find insnow_2dnav)/config/local_costmap_params.yaml" command="load" />
+        
+        <rosparam file="$(find insnow_2dnav)/config/global_costmap_params.yaml" command="load" /> 
+        
+      <!--  <rosparam file="$(find insnow_2dnav)/config/mark1_param_1.yaml" command="load" /> -->
+	<rosparam file="$(find insnow_2dnav)/config/move_base_params.yaml" command="load" />
+	
+ </node>
+
+</launch> 

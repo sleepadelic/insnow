@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+    <param name="/use_sim_time" value="true"/>
+    <node  name="map_server" pkg="map_server" type="map_server" args="$(find insnow_init)maps/garage_map.yaml"/>
+    <node pkg="gmapping" type="slam_gmapping" name="gmapping" output="screen">                
+        <param name="base_frame" value="base_link"/>
+        <param name="maxRange" value="29"/>
+        <param name="maxRange" value="30"/>
+        
+        <!--remap from="scan" to="/scan"/-->        
+    </node>
+
+
+</launch>

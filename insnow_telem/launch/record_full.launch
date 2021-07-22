@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="save_dir_path" value="/home/danil0111/"/>
+  <node pkg="rosbag" type="record" name="rosbag_record_telem" args="record -a -o '$(arg save_dir_path)' -x '/velodyne_packets'"/>
+</launch>

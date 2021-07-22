@@ -1,0 +1,27 @@
+transform_tolerance: 0.5  # 0.2
+
+always_send_full_costmap: false
+
+footprint: [[0.8,0.5],[0.8,-0.5],[-0.6,-0.5],[-0.6,0.5]]
+
+static_layer:
+  unknown_cost_value: -1
+  lethal_cost_threshold: 254
+  first_map_only: false
+  subscribe_to_updates: true
+  track_unknown_space: true
+  use_maximum: true
+  trinary_costmap: true
+
+
+inflation_layer:
+  inflation_radius: 30.  # the bigger the better, defines where the gradient is
+  cost_scaling_factor: 0.9  # 0.5 the bigger the steeper the gradient is
+
+
+observation_sources: laser_scan_sensor point_cloud_sensor
+
+laser_scan_sensor: {sensor_frame: velodyne_1, data_type: LaserScan, topic: /scan, marking: true, clearing: true}
+
+point_cloud_sensor: {sensor_frame: velodyne_1, data_type: PointCloud, topic: /velodyne_points, marking: true, clearing: true}
+

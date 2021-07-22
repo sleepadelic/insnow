@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- <param name="use_sim_time" value="true"/> -->
+    <param name="use_sim_time" value="true"/> 
+    <arg default="$(find insnow_description)/urdf/insnow.xacro" name="model"/>
+    <arg default="false" name="gui"/>
+    <param command="$(find xacro)/xacro $(arg model)" name="robot_description"/>
+    <param name="use_gui" value="$(arg gui)"/>
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+    <!-- <include file="$(find sensor_odom_manager)/launch/sensor_odom_manager.launch"></include> -->
+    <include file="$(find insnow_init)/launch/init_сontrols.launch"></include>
+
+    <node name="rqt_bag" pkg="rqt_bag" type="rqt_bag" output="screen" respawn="false" respawn_delay="0" args="--clock"> 
+        <remap from="/velodyne_points" to="/points2"/>
+    </node>
+    <include file="$(find insnow_2dnav)/launch/move_base.launch"></include>
+
+
+</launch>

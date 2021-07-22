@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<robot name="insnow" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find insnow_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find insnow_description)/urdf/insnow.trans" />
+<xacro:include filename="$(find insnow_description)/urdf/insnow.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.12717301343956705 0.009327594639662502 0.3152719406098459"/>
+    <mass value="404.8902471818569"/>
+    <inertia ixx="28.059971" ixy="-0.735887" ixz="0.138837" iyy="52.00884" iyz="0.134865" izz="59.951464"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://insnow_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="yellow_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://insnow_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="velodyne_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.08046 -0.002321 -0.759661"/>
+    <mass value="0.0"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.08046 -0.002321 -0.759661"/>
+    <geometry>
+      <mesh filename="package://insnow_description/meshes/velodyne_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.08046 -0.002321 -0.759661"/>
+    <geometry>
+      <mesh filename="package://insnow_description/meshes/velodyne_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="t265_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.005742296458673857 0.002834237308150125 -1.9063870901669944e-05"/>
+    <mass value="0.061820685822572184"/>
+    <inertia ixx="5.7e-05" ixy="-0.0" ixz="-0.0" iyy="3e-06" iyz="-0.0" izz="5.5e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.115584 -0.000979 -0.750347"/>
+    <geometry>
+      <mesh filename="package://insnow_description/meshes/t265_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.115584 -0.000979 -0.750347"/>
+    <geometry>
+      <mesh filename="package://insnow_description/meshes/t265_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="velodyne_joint" type="fixed">
+  <origin rpy="0 0 0" xyz="0.08046 0.002321 0.759661"/>
+  <parent link="base_link"/>
+  <child link="velodyne_1"/>
+</joint>
+
+<joint name="t265_joint" type="fixed">
+  <origin rpy="0 0 0" xyz="0.115584 0.000979 0.750347"/>
+  <parent link="base_link"/>
+  <child link="t265_link"/>
+</joint>
+
+</robot>

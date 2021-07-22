@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" output="log" respawn="true" respawn_delay="10"/>
+    <arg default="$(find insnow_description)/launch/urdf.rviz" name="rvizconfig"/>
+    <node args="-d $(arg rvizconfig)"  name="rviz" pkg="rviz" required="true" type="rviz"/>
+    <!-- <node name="base_link_path_writer" pkg="move_basics" type="path_writer.py" output="log" respawn="true" respawn_delay="10"/> -->
+</launch>

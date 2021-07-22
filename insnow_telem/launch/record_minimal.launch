@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="save_dir_path" default="/media/nvidia/TELEM1"/>
+  <arg name="nodes" default="rosout cmd_vel RR_speed LR_speed scan tf t265/fisheye1/image_raw map"/>
+  
+  <node pkg="rosbag" type="record" name="rosbag_record_telem" args="record -o $(arg save_dir_path) $(arg nodes) --chunksize=2048 -b 1024"/>
+</launch>
