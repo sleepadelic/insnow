@@ -19,12 +19,12 @@ options = {
   map_builder = MAP_BUILDER,
   trajectory_builder = TRAJECTORY_BUILDER,
   map_frame = "map",
-  tracking_frame = "base_link",
+  tracking_frame = "velodyne_1",
   published_frame = "base_link",
   odom_frame = "base_link",
   provide_odom_frame = false,
   publish_frame_projected_to_2d = false,
-  use_odometry = true,
+  use_odometry = false,
   use_nav_sat = false,
   use_landmarks = false,
   num_laser_scans = 1,
@@ -43,12 +43,14 @@ options = {
 }
 
 MAP_BUILDER.use_trajectory_builder_2d = true
-
+MAP_BUILDER.num_background_threads=6
 TRAJECTORY_BUILDER_2D.submaps.num_range_data = 35
 TRAJECTORY_BUILDER_2D.min_range = 0.5
-TRAJECTORY_BUILDER_2D.max_range = 50.
-TRAJECTORY_BUILDER_2D.missing_data_ray_length = 1.
-TRAJECTORY_BUILDER_2D.use_imu_data = false
+TRAJECTORY_BUILDER_2D.max_range = 20.
+-- TRAJECTORY_BUILDER_2D.min_z = -0.1
+-- TRAJECTORY_BUILDER_2D.max_z = 1.0
+TRAJECTORY_BUILDER_2D.missing_data_ray_length = 25.
+TRAJECTORY_BUILDER_2D.use_imu_data = true
 TRAJECTORY_BUILDER_2D.use_online_correlative_scan_matching = true
 TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.linear_search_window = 0.1
 TRAJECTORY_BUILDER_2D.real_time_correlative_scan_matcher.translation_delta_cost_weight = 10.

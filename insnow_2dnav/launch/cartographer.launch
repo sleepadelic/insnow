@@ -12,17 +12,21 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
+  -load_state_filename $(find insnow_2dnav)/maps/map.pbstream
 -->
 
 <launch>
  
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
-          -configuration_directory $(find cartographer_ros)/configuration_files
-          -configuration_basename rover.lua"
-      output="screen">
+          -configuration_directory $(find insnow_2dnav)/config
+          -configuration_basename rover.lua
+          "
+      output="screen" respawn="true" respawn_delay="3">
     <remap from="points2" to="velodyne_points" />
-    <remap from="odom" to="t265/odom/sample" />    
+    <remap from="odom" to="t265/odom/sample" />  
+    <remap from="/imu" to="/mavros/imu/data" />
+    <remap from="/fix" to="/mavros/global_position/raw/fix" />       
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"

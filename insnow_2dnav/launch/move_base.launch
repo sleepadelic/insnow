@@ -6,5 +6,6 @@
 		<rosparam file="$(find insnow_2dnav)/config/local_costmap_params.yaml" command="load" />
 		<rosparam file="$(find insnow_2dnav)/config/global_costmap_params.yaml" command="load" />
 		<rosparam file="$(find insnow_2dnav)/config/move_base_params.yaml" command="load" />
+		<rosparam file="$(find insnow_2dnav)/config/teb_local_planner_params.yaml" command="load" />
 	</node>
 </launch>

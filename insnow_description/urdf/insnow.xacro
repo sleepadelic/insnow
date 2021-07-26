@@ -67,6 +67,9 @@
   </collision>
 </link>
 
+<link name="t265_imu_optical_frame">
+</link>
+
 <joint name="velodyne_joint" type="fixed">
   <origin rpy="0 0 0" xyz="0.08046 0.002321 0.759661"/>
   <parent link="base_link"/>
@@ -74,9 +77,14 @@
 </joint>
 
 <joint name="t265_joint" type="fixed">
-  <origin rpy="0 0 0" xyz="0.115584 0.000979 0.750347"/>
+  <origin rpy="0 0.015 0" xyz="0.115584 0.000979 0.750347"/>
   <parent link="base_link"/>
   <child link="t265_link"/>
+</joint>
+<joint name="t265_imu" type="fixed">
+  <origin rpy="-1.570796327 0 0" xyz="0.0 0.0 0.0"/>
+  <parent link="t265_link"/>
+  <child link="t265_imu_optical_frame"/>
 </joint>
 
 </robot>

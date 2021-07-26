@@ -16,11 +16,15 @@
     <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch">
         <arg name="frame_id" value="velodyne_1"/>
     </include>
-    <include file="$(find insnow_init)/launch/rs_t265.launch"/>
+    <include file="$(find insnow_init)/launch/rs_t265.launch"/> 
+    <include file="$(find insnow_init)/launch/px4.launch"/>
     <include file="$(find insnow_2dnav)/launch/cartographer.launch"/>
     <include file="$(find insnow_2dnav)/launch/move_base.launch"/>
+    
 <!--
-
+    
+   <include file="$(find insnow_2dnav)/launch/cartographer.launch"/>
+    <include file="$(find insnow_2dnav)/launch/move_base.launch"/>
     <include file="$(find insnow_init)/launch/sensor_odom_manager.launch"/>
     <include file="$(find insnow_2dnav)/launch/hector_mapping.launch"/>
     <include file="$(find insnow_2dnav)/launch/move_base.launch"/>
