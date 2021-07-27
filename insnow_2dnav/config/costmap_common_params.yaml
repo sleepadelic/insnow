@@ -40,7 +40,7 @@ static_layer:
 
 inflation_layer:
   inflation_radius: 0.5  # the bigger the better, defines where the gradient is
-  cost_scaling_factor: 5.0  # 0.5 the bigger the steeper the gradient is
+  cost_scaling_factor: 1.0  # 0.5 the bigger the steeper the gradient is
 
 
 
