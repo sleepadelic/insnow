@@ -5,8 +5,8 @@ TebLocalPlannerROS:
  # Trajectory
   
  teb_autosize: True
- dt_ref: 0.5
- dt_hysteresis: 0.15
+ dt_hysteresis: 0.01584
+ dt_ref: 0.1584
  global_plan_overwrite_orientation: True
  allow_init_with_backwards_motion: True
  max_global_plan_lookahead_dist: 3.0
@@ -19,11 +19,11 @@ TebLocalPlannerROS:
  max_vel_y: 0.0
  max_vel_theta: 1.9 # the angular velocity is also bounded by min_turning_radius in case of a carlike robot (r = v / omega)
  acc_lim_x: 3.0
- acc_lim_theta: 4.0
+ acc_lim_theta: 7.0
 
  # ********************** Carlike robot parameters ********************
  min_turning_radius: 0.0       # Min turning radius of the carlike robot (compute value using a model or adjust with rqt_reconfigure manually)
- wheelbase: 0.75                 # Wheelbase of our robot
+ wheelbase: 0.0                 # Wheelbase of our robot
  cmd_angle_instead_rotvel: False # stage simulator takes the angle instead of the rotvel as input (twist message)
  # ********************************************************************
 
@@ -56,11 +56,11 @@ TebLocalPlannerROS:
 
  # Optimization
     
- no_inner_iterations: 5
- no_outer_iterations: 4
+ no_inner_iterations: 3
+ no_outer_iterations: 3
  optimization_activate: True
  optimization_verbose: False
- penalty_epsilon: 0.1
+ penalty_epsilon: 0.06
  weight_max_vel_x: 2
  weight_max_vel_theta: 1
  weight_acc_lim_x: 1

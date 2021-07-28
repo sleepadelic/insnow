@@ -25,7 +25,7 @@ obstacle_layer:
    marking: true
    clearing: true
    observation_persistence: 0.5
-   min_obstacle_height: -0.5
+   min_obstacle_height: 0.5
    max_obstacle_height: 2.2
 
 static_layer:
@@ -39,8 +39,8 @@ static_layer:
 
 
 inflation_layer:
-  inflation_radius: 0.5  # the bigger the better, defines where the gradient is
-  cost_scaling_factor: 1.0  # 0.5 the bigger the steeper the gradient is
+  inflation_radius: 0.25  # the bigger the better, defines where the gradient is
+  cost_scaling_factor: 5.0  # 0.5 the bigger the steeper the gradient is
 
 
 
