@@ -8,7 +8,7 @@ TebLocalPlannerROS:
  dt_hysteresis: 0.01584
  dt_ref: 0.1584
  global_plan_overwrite_orientation: True
- allow_init_with_backwards_motion: True
+ allow_init_with_backwards_motion: False
  max_global_plan_lookahead_dist: 3.0
  feasibility_check_no_poses: 2
     
